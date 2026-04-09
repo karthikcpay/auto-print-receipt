@@ -74,7 +74,7 @@ def create_app() -> Flask:
                 'isOnline':         is_online,
                 'paperWidth':       cfg.get('paper_width', 80),
                 'availablePrinters': printers,
-                'serverVersion':    '1.0.0',
+                'serverVersion':    '1.1.1',
             })
         except Exception as e:
             logger.error(f"[/api/status] {e}")

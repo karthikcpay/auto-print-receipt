@@ -120,7 +120,7 @@ def format_universal(data: dict, paper_width: int = 80) -> bytes:
 
     if name:  r.two_col('Customer :', name)
     if phone: r.two_col('Phone :', f'+{phone}')
-    if table: r.two_col('Table :', str(table))
+    if table and str(table) != '0': r.two_col('Table :', str(table))
     if dtype: r.two_col('Order Type :', dtype)
     if addr and 'DELIVERY' in str(main.get('deliveryType', '')):
         r.two_col('Address :', str(addr)[:w - 12])
