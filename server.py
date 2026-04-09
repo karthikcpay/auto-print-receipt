@@ -117,8 +117,12 @@ def create_app() -> Flask:
         content_type = request.content_type or ''
 
         # ── Resolve printer (shared for both paths) ────────────────────────────
-        cfg          = get_config()
-        printer_name = cfg.get('printer') or pm.get_default_printer()
+        # Priority: request body/param "printer" → config default → OS default
+        cfg              = get_config()
+        request_printer  = request.args.get('printer')  # query param
+        if not request_printer and request.is_json and request.json:
+            request_printer = request.json.get('printer')  # JSON body
+        printer_name = request_printer or cfg.get('printer') or pm.get_default_printer()
         if not printer_name:
             return jsonify({
                 'success': False,
