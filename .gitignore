@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Logs
+*.log
+
+# Config (may contain sensitive printer info)
+# config.json  ← uncomment if you don't want to commit printer config
+
+# PyInstaller artifacts
+*.manifest
+*.exe
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
